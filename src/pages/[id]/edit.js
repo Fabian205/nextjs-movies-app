@@ -58,7 +58,7 @@ const EditMovie = () => {
   }
   return (
     <div className="container">
-      <h1>Edit movie</h1>
+      <h1 className="text-light">Edit movie</h1>
       
       <Form forNewMovie={false} formData={formData}></Form>
     </div>

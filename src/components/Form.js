@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-const Form = ({formData, forNewMovie=true}) => {
+const Form = ({ formData, forNewMovie = true }) => {
   const router = useRouter();
 
   const [form, setForm] = useState({
@@ -25,16 +25,16 @@ const Form = ({formData, forNewMovie=true}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(forNewMovie){
+    if (forNewMovie) {
       postData(form);
-    }else{
+    } else {
       putData(form);
     }
   };
 
   const putData = async (form) => {
     //setMessage([]);
-    const {id} = router.query
+    const { id } = router.query;
     try {
       const res = await fetch(`/api/movie/${id}`, {
         method: "PUT",
@@ -51,12 +51,11 @@ const Form = ({formData, forNewMovie=true}) => {
       } else {
         //setMessage([]);
         router.push("/");
-      }      
+      }
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const postData = async (form) => {
     try {
@@ -67,7 +66,7 @@ const Form = ({formData, forNewMovie=true}) => {
         },
         body: JSON.stringify(form),
       });
-      
+
       const data = await res.json();
       if (!data.success) {
         alert("Ingrese los datos requeridos (*)");
@@ -93,10 +92,10 @@ const Form = ({formData, forNewMovie=true}) => {
 
   return (
     <div>
-    <form onSubmit={handleSubmit}>
-      <h3>Concept</h3>
+      <form onSubmit={handleSubmit}>
+        <h3 className="text-light" >Concept</h3>
         <input
-          className="form-control my-2"
+          className="form-control my-3 bg-dark text-light"
           type="text"
           placeholder="Enter concept*"
           autoComplete="off"
@@ -105,8 +104,20 @@ const Form = ({formData, forNewMovie=true}) => {
           onChange={handleChange}
           autoFocus
         />
-        <h3>Account</h3>
-        <input
+        <h3 className="text-light">Account</h3>
+        <select 
+        className="form-control my-3 bg-dark text-light"
+        name="cuenta"
+        value={form.cuenta}
+        onChange={handleChange}       
+        >
+          <option value="CtaCteBp-Rp" selected>CtaCteBp-Rp</option>
+          <option value="CtaAhoBp-Rp">CtaAhoBp-Rp</option>
+          <option value="CtaAhoCacpn-Rp">CtaAhoCacpn-Rp</option>
+          <option value="CtaPa">CtaPa</option>
+          <option value="CtaLou">CtaLou</option>
+        </select>
+        {/* <input
           className="form-control my-2"
           type="text"
           placeholder="Enter account"
@@ -114,10 +125,10 @@ const Form = ({formData, forNewMovie=true}) => {
           name="cuenta"
           value={form.cuenta}
           onChange={handleChange}
-        />
-        <h3>Detail</h3>
+        /> */}
+        <h3 className="text-light">Detail</h3>
         <input
-          className="form-control my-2"
+          className="form-control my-3 bg-dark text-light"
           type="text"
           placeholder="Enter detail"
           autoComplete="off"
@@ -125,9 +136,9 @@ const Form = ({formData, forNewMovie=true}) => {
           value={form.detalle}
           onChange={handleChange}
         />
-        <h3>Date</h3>
+        <h3 className="text-light">Date</h3>
         <input
-          className="form-control my-2"
+          className="form-control my-3 bg-dark text-light"
           type="date"
           placeholder="Enter date"
           autoComplete="off"
@@ -135,9 +146,9 @@ const Form = ({formData, forNewMovie=true}) => {
           value={form.fecha}
           onChange={handleChange}
         />
-        <h3>Value</h3>
+        <h3 className="text-light">Value</h3>
         <input
-          className="form-control my-2"
+          className="form-control my-3 bg-dark text-light"
           type="text"
           placeholder="Enter value*"
           autoComplete="off"
@@ -153,10 +164,10 @@ const Form = ({formData, forNewMovie=true}) => {
         </Link>
         {/* {message.map(({ message }) => (
           <p key={message}>{message}</p>
-        ))} */} 
+        ))} */}
       </form>
-  </div>
-  )
+    </div>
+  );
 };
 
 export default Form;

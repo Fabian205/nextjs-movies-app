@@ -12,7 +12,7 @@ const New = () => {
 
   return (
     <div className="container">
-      <h1 className="my-3">Add note</h1>
+      <h1 className="my-3 text-light">Add note</h1>
       <Form formData={formData}/>
     </div>
   );

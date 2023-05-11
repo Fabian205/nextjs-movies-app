@@ -30,8 +30,8 @@ const MoviePage = ({ success, error, movie }) => {
 
   return (
     <div className="container text-center">
-      <h1>More information</h1>
-      <div className="card">
+      <h1 className="text-light">More information</h1>
+      <div className="card bg-dark text-light">
         <div className="card-body">
           <div className="card-title">
             <h5 className="text-uppercase">{movie.fecha}</h5>
