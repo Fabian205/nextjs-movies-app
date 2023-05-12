@@ -105,17 +105,21 @@ const Form = ({ formData, forNewMovie = true }) => {
           autoFocus
         />
         <h3 className="text-light">Account</h3>
+        
         <select 
+        
         className="form-control my-3 bg-dark text-light"
         name="cuenta"
         value={form.cuenta}
         onChange={handleChange}       
         >
-          <option value="CtaCteBp-Rp" selected>CtaCteBp-Rp</option>
-          <option value="CtaAhoBp-Rp">CtaAhoBp-Rp</option>
-          <option value="CtaAhoCacpn-Rp">CtaAhoCacpn-Rp</option>
-          <option value="CtaPa">CtaPa</option>
-          <option value="CtaLou">CtaLou</option>
+          <option color="blue" value="seleccion" selected>Seleccione la cuenta</option>
+          <option color="yellow" value="Cta_Cte_Bp-Rp">Cta_Cte_Bp-Rp</option>
+          <option color="yellow" value="Cta_Aho_Bp-Rp">Cta_Aho_Bp-Rp</option>
+          <option color="green" value="Cta_Aho_Cacpn-Rp">Cta_Aho_Cacpn-Rp</option>
+          <option color ="gray" value="Cta_Pa">Cta_Pa</option>
+          <option color="magenta" value="Cta_Lou">Cta_Lou</option>
+          <option value="Efectivo">Efectivo</option>
         </select>
         {/* <input
           className="form-control my-2"
